@@ -54,7 +54,7 @@ app.listen(3000, function () {
 });
 
 // private route
-app.use('/movies', validateUser, movies);
+app.use('/games', validateUser, games);
 function validateUser(req, res, next) {
     jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function (err, decoded) {
         if (err) {
