@@ -7,6 +7,11 @@ const GameSchema = new Schema({
   trim: true,  
   required: true,
  },
+ game_information: {
+    type: String,
+    trim: true,
+    required: true,
+ },
  released_on: {
   type: Date,
   trim: true,
