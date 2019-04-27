@@ -26,4 +26,23 @@ res.json({status:"error", message: "Invalid email/password!!!", data:null});
      }
     });
  },
+ updateById: function(req, res, next) {
+    userModel.findByIdAndUpdate(req.params.userId,{name:req.body.name}, function (err, userInfo){
+      if(err)
+      next(err);
+     else {
+      res.json({status:"success", message: "Username updated successfully!!!", data:null});  
+    }
+ });
+},
+getById: function(req, res, next) {
+   console.log(req.body);
+   userModel.findById(req.params.userId, function(err, userInfo){
+      if (err) {
+         next(err);
+      } else {
+         res.json({status:"success", message: "Username found!!!", data:{users: userInfo}});
+      }
+   });
+},
 }
