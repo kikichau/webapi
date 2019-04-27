@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 //Define a schema
 const Schema = mongoose.Schema;
-const GameSchema = new Schema({
+const CommantSchema = new Schema({
  name: {
   type: String,
   trim: true,  
@@ -18,4 +18,4 @@ const GameSchema = new Schema({
   required: true
  }
 });
-module.exports = mongoose.model('Game', GameSchema)
+module.exports = mongoose.model('Commant', CommantSchema)
