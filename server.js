@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const games = require('./routes/games');
 const users = require('./routes/users');
+const commants = require('./routes/commants');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
@@ -18,6 +19,7 @@ app.get('/', function (req, res) {
 app.use('/users', users);
 // private route
 app.use('/games', validateUser, games);
+app.use('/commants', validateUser, commants);
 app.get('/favicon.ico', function (req, res) {
     res.sendStatus(204);
 });
@@ -55,6 +57,7 @@ app.listen(3000, function () {
 
 // private route
 app.use('/games', validateUser, games);
+app.use('/commants', validateUser, commants);
 function validateUser(req, res, next) {
     jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function (err, decoded) {
         if (err) {

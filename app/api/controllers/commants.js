@@ -9,7 +9,7 @@ module.exports = {
         });
     },
     updateById: function (req, res, next) {
-        commantModel.findByIdAndUpdate(req.params.commantId, { name: req.body.name, commant: req.body.commant, released_on: req.body.released_on }, function (err, gameInfo) {
+        commantModel.findByIdAndUpdate(req.params.commantId, { name: req.body.name, commant: req.body.commant, released_on: req.body.released_on }, function (err, commantInfo) {
             if (err)
                 next(err);
             else {
