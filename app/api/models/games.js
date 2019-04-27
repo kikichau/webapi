@@ -11,6 +11,11 @@ const GameSchema = new Schema({
   type: Date,
   trim: true,
   required: true
+ },
+ developer: {
+    type: String,
+    trim: true,  
+    required: true,
  }
 });
 module.exports = mongoose.model('Game', GameSchema)
