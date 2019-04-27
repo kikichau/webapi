@@ -25,7 +25,7 @@ module.exports = {
         });
     },
     updateById: function (req, res, next) {
-        commantModel.findByIdAndUpdate(req.params.commantId, { name: req.body.name }, function (err, commantInfo) {
+        commantModel.findByIdAndUpdate(req.params.commantId, { name: req.body.name, commant: req.body.commant, date: dateTime }, function (err, commantInfo) {
             if (err)
                 next(err);
             else {
