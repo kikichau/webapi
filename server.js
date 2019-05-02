@@ -18,8 +18,10 @@ app.get('/', function (req, res) {
 // public route
 app.use('/users', users);
 // private route
-app.use('/games', validateUser, games);
-app.use('/commants', validateUser, commants);
+app.use('/games', games);
+app.use('/commants', commants);
+//app.use('/games', validateUser, games);
+//app.use('/commants', validateUser, commants);
 app.get('/favicon.ico', function (req, res) {
     res.sendStatus(204);
 });
@@ -56,8 +58,8 @@ app.listen(3000, function () {
 });
 
 // private route
-app.use('/games', validateUser, games);
-app.use('/commants', validateUser, commants);
+app.use('/games', games);
+app.use('/commants', commants);
 function validateUser(req, res, next) {
     jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function (err, decoded) {
         if (err) {
